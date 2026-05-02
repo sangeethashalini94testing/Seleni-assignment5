@@ -1,0 +1,36 @@
+Dropdown Assignment
+1) Write a program to handle State and City (2 dropdowns) from https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php
+Condition: 1 dropdown should be handled by Select and another one by means of normal way (Not using Select method):
+
+  package Ass_sele;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Ass5Selenium_V3 {
+
+    public static void main(String[] args) throws InterruptedException {
+
+        String url = "https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php";
+        WebDriver driver = new ChromeDriver();
+        driver.get(url);
+        Thread.sleep(2000);
+
+       WebElement stateElement = driver.findElement(By.id("state"));
+        Select stateSelect = new Select(stateElement);
+        StateSelect.selectByVisibleText("Tamil Nadu");
+		    WebElement cityDropdown = driver.findElement(By.id("city"));
+           cityDropdown.click();
+        driver.findElement(By.xpath("//select[@id='city']//option[text()='Chennai']")).click();
+		    Thread.sleep(2000);
+        driver.close();
+
+	}
+
+}
+
+       
+        
