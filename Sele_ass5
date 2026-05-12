@@ -2,7 +2,8 @@ Dropdown Assignment
 1) Write a program to handle State and City (2 dropdowns) from https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php
 Condition: 1 dropdown should be handled by Select and another one by means of normal way (Not using Select method):
 
-  package Ass_sele;
+  
+package selenium_cls;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,8 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class Ass5Selenium_V3 {
-
+public class Ass5Selenium_DropDown {
     public static void main(String[] args) throws InterruptedException {
 
         String url = "https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php";
@@ -19,18 +19,18 @@ public class Ass5Selenium_V3 {
         driver.get(url);
         Thread.sleep(2000);
 
-       WebElement stateElement = driver.findElement(By.id("state"));
+        //  State Dropdown — located using By.id("state")
+        WebElement stateElement = driver.findElement(By.id("state"));
         Select stateSelect = new Select(stateElement);
-        StateSelect.selectByVisibleText("Tamil Nadu");
-		    WebElement cityDropdown = driver.findElement(By.id("city"));
-           cityDropdown.click();
-        driver.findElement(By.xpath("//select[@id='city']//option[text()='Chennai']")).click();
-		    Thread.sleep(2000);
+        stateSelect.selectByVisibleText("Uttar Pradesh");
+
+          //  City Dropdown — located using By.id("city")
+        WebElement cityElement = driver.findElement(By.id("city"));
+        Select citySelect = new Select(cityElement);
+        citySelect.selectByVisibleText("Agra");
+
+        Thread.sleep(2000);
         driver.close();
-
-	}
-
-}
-
-       
         
+    }
+}
